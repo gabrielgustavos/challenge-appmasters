@@ -7,9 +7,9 @@ import { MdEmail, MdPhone } from "react-icons/md";
 
 import { normalizePhoneNumber, normalizeZipCode } from "/Services/Mask/mask";
 import requiredFields from "/Services/Validation/validation";
-import api from "/api/api"
+import api from "/api/api";
 
-import S from "/Assets/Styles/Form.module.css"
+import S from "/Assets/Styles/Form.module.css";
 
 const UserForm = () => {
   const {
@@ -51,7 +51,7 @@ const UserForm = () => {
         alert(
           "Ocorreu um erro ao enviar sua doação, tente novamente mais tarde."
         );
-      }) && reset();
+      });
   };
 
   const checkCep = (e) => {
@@ -105,7 +105,6 @@ const UserForm = () => {
   const conditionDevice = (event) => {
     let type = event.target.value;
     setDeviceCondition(type);
-    console.log(deviceCondition);
   };
 
   return (
@@ -154,7 +153,7 @@ const UserForm = () => {
           placeholder="Ex: 99999-999"
           type="text"
           {...register("zip")}
-          onBlur={checkCep}
+          onChange={checkCep}
         />
         <span className={S.condition_message}>{errors.zip?.message}</span>
 
@@ -216,7 +215,7 @@ const UserForm = () => {
                   </option>
                 ))}
               </select>
-              <label>Condição do equipamento {index + 1}</label>
+              <label>Condição do equipamento</label>
               <br />
 
               <div {...register(`devices[${index}].condition`)}>
@@ -232,23 +231,24 @@ const UserForm = () => {
                     <span>{condition.deviceName}</span>
                   </div>
                 ))}
-                <span className={S.condition_message}>
-                  {errors.condition?.message}
-                </span>
+                  <span className={S.condition_message}>
+                    {errors.devices?.[index]?.condition?.message}
+                  </span>
+
               </div>
             </div>
           ))}
         </footer>
         <div className={S.btn_submit}>
-          <button onClick={() => reset()} className={S.btn_clean}>
-            Limpar campos
-          </button>
           <button
             className={S.btn_send}
             onClick={handleSubmit(onSubmit)}
             type="submit"
           >
             Confirmar
+          </button>
+          <button onClick={() => reset()} className={S.btn_clean}>
+            Limpar campos
           </button>
         </div>
       </form>

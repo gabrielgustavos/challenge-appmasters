@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import S from "./Header.module.css"
+import S from "/Assets/Styles/Header.module.css"
 
 const Header = () => {
   return (

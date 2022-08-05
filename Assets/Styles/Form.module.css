@@ -27,7 +27,7 @@
 
 .form_container > input {
   background-color: #FFFFFF;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   text-align: center;
   padding: 10px;
   outline: none;
@@ -114,16 +114,15 @@
 }
 
 .condition_message {
-  width: 100%;
-  text-align: center;
   font-size: 1.3rem;
-  color: rgb(240, 60, 60);
+  color: rgb(255, 0, 0);
   font-weight: bold;
 }
 
 @media (max-width: 768px) {
   .form_container {
     width: 100%;
+    padding: 0px 50px;
   }
 
   .form_container > label {
@@ -131,7 +130,7 @@
   }
 
   .form_container > input {
-    font-size: 1.3rem;
+    font-size: 1.3rem; 
   }
 
   .form_container > input:last-child {

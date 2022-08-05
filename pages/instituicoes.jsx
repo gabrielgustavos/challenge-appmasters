@@ -1,11 +1,11 @@
-import datas from "/Services/utils/Institution/institutionData"
+import datas from "../Services/utils/Institution/institutionData";
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 import { BiWorld } from "react-icons/bi";
 import { BsWhatsapp, BsFacebook } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
-import S from "/Assets/Styles/Instituicoes.module.css"
+import S from "../Assets/Styles/Instituicoes.module.css";
 export default function instituicoes() {
   return (
     <div>
@@ -14,7 +14,7 @@ export default function instituicoes() {
           <Link href="/">
             <a>
               {" "}
-              <AiOutlineArrowLeft size={20} color="#002fff" />
+              <AiOutlineArrowLeft size={20} color="#ffffff" />
               Voltar
             </a>
           </Link>
@@ -33,10 +33,15 @@ export default function instituicoes() {
             <span className={S.sobre}>{data.about}</span>
             <h2 className={S.contact_us}>Entre em contato conosco</h2>
             <nav className={S.icons}>
-              <span>Site</span>
+              <Link href={data.site}>
+                <span>Site</span>
+              </Link>
               <BiWorld size={25} />
 
-              <span>Instagram</span>
+              <a href="#">
+                <span>Instagram</span>
+              </a>
+
               <FaInstagram size={25} color="#d322bb" />
 
               <span>Whatsapp</span>

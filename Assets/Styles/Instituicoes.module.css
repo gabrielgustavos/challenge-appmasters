@@ -8,12 +8,6 @@
   padding: 0 20px;
 }
 
-.header_container > h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-}
-
 .container {
   display: flex;
   align-items: center;
@@ -25,12 +19,6 @@
   border:  2px solid #fff;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
-}
-
-.container > h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
 }
 
 .container > h2 {
@@ -59,7 +47,7 @@
 .instituicao_nome{
   font-size: 2.5rem;
   font-weight: bold;
-  color: rgb(0, 0, 255);
+  color: #00B3FE;
   width: 100%;
   text-align: center;
 }
@@ -73,6 +61,11 @@
   justify-content: center;
   flex-direction: row;
   cursor: pointer;
+  color: #FFFFFF;
+}
+
+.icons > a {
+  text-decoration: none;
   color: #FFFFFF;
 }
 
