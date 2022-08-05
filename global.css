@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+a::after {
+  content: '';
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  height: 2px;
+  background-color: #fff8f8;
+}
+
+a:hover {
+  color: #fff8f8;
+}

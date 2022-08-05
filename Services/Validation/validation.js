@@ -1,11 +1,11 @@
 import * as yup from "yup";
 
-const schema = yup.object({
+const requiredFields = yup.object({
   name: yup.string().required("O nome é obrigatório"),
   email: yup.string().email("Digite um e-mail válido"),
   phone: yup
-    .string()
-    .min(12, "O telefone é obrigatório e deve ter 12 dígitos")
+    .string() 
+    .min(10, "O telefone é obrigatório e deve ter 10 dígitos")
     .required("O telefone é obrigatório"),
   zip: yup.string().required("O CEP é obrigatório"),
   city: yup.string().required("A cidade é obrigatória"),
@@ -19,6 +19,7 @@ const schema = yup.object({
     .required("Preencha o número de dispositivos")
     .typeError("Preencha o número de dispositivos")
     .min(1, "O número deve ser maior que 0"),
+    
 });
 
-export default schema;
+export default requiredFields;
