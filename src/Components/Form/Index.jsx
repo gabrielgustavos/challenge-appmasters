@@ -161,14 +161,8 @@ const UserForm = () => {
           {...register("zip")}
           onChange={checkCep}
         />
-        {/* loading effect */}
-        {loading ? (
-          <div className={S.loading}>
-            <div className={S.loading_spinner}>Aguarde...</div>
-          </div>
-        ) : (
-          ""
-        )}
+
+        <span>{loading ? <span>Aguarde...</span> : ""}</span>
         <span className={S.condition_message}>{errors.zip?.message}</span>
 
         <label>Logradouro *</label>

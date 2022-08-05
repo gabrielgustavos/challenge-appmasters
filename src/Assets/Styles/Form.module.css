@@ -38,7 +38,6 @@
 .form_container > input:focus {
   background-color:  #dbcfcf;
   border: 2px solid rgb(0, 255, 64);
-  font-size:  1.7rem;
 }
 
 .form_container > input:last-child {
