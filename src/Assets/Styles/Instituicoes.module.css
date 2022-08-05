@@ -1,0 +1,103 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00B4FF;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #574848;
+  padding: 1.5rem;
+  border:  2px solid #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.container > h2 {
+  text-align: center;
+}
+
+.container > span {
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+}
+
+.infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border:  2px solid #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  background-color: #FFFFFF;
+}
+
+/* icons rows space between grid */
+.instituicao_nome{
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00B3FE;
+  width: 100%;
+  text-align: center;
+}
+
+.icons {
+  font-size: 1.2rem;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.icons > a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .icons {
+    flex-direction: column;
+  }
+
+  .icons > * {
+    margin-bottom: 1rem;
+  }
+
+  .icons > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+ .sobre {
+  width: 100%;
+  text-align: center;
+ }
+ 
+ .header_container {
+  height: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+}
