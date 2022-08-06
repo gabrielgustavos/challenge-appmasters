@@ -45,18 +45,14 @@ export default function instituicoes() {
             <h2>Sobre a instituição</h2>
             <span className={S.sobre}>{data.about}</span>
             <h2 className={S.contact_us}>Entre em contato conosco</h2>
-            <a href={data.url} target="_blank" rel="noopener noreferrer">
+            <a href="https://appmasters.io" rel="noreferrer" target="_blank">
               <nav className={S.icons}>
-                <span>Site</span>
+                <span>Ver site</span>
                 <BiWorld size={25} />
-
                 <span>Instagram</span>
-
                 <FaInstagram size={25} color="#d322bb" />
-
                 <span>Whatsapp</span>
                 <BsWhatsapp size={25} color="#48ff00" />
-
                 <span>Facebook</span>
                 <BsFacebook size={25} color="#003cff" />
               </nav>
