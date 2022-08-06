@@ -1,5 +1,6 @@
 # Processo seletivo para estágio na AppMasters
-  - Conheça a [AppMasters](https://www.appmasters.io/en)
+
+- Conheça a [AppMasters](https://www.appmasters.io/en)
 
 ## Instruções
 
@@ -22,3 +23,7 @@
 ```bash
   npm run dev ou yarn dev
 ```
+
+### Sobre as validações do projeto
+
+- O projeto possui duas camadas de validações no back-end e no front-end utilizando o Yup, evitando 100% envios sem os campos requisitados preenchidos
