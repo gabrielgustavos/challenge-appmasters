@@ -20,6 +20,7 @@ import {
 import api from "../../api/api";
 
 import S from "../../Assets/Styles/Form.module.css";
+import { object } from "yup";
 
 const UserForm = () => {
   const {
@@ -28,7 +29,6 @@ const UserForm = () => {
     setValue,
     watch,
     setFocus,
-    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(requiredFields),
@@ -50,6 +50,7 @@ const UserForm = () => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = (value) => {
+    console.log(value);
     if (value.email === "") {
       value.email = null;
     }
@@ -60,13 +61,13 @@ const UserForm = () => {
         alert("Obrigado por doar!");
       })
       .catch((error) => {
-        alert(
-          `Faltam os seguintes campos:\n${error.response.data.requiredFields.join(
-            "\n"
-          )}`
-        );
+        // erro referente ao campo de devices da api
+        if (typeof error.response.data.requiredFields[0] === "object") {
+          alert(`Preencha as condições do equipamento`);
+        } else {
+          alert(error.response.data.requiredFields);
+        }
       });
-    reset();
   };
 
   /* Busca de CEP e preenchimento automaticamento com setValue */
@@ -222,15 +223,9 @@ const UserForm = () => {
                     <span>{condition.deviceName}</span>
                   </div>
                 ))}
-
-                <span className={S.condition_message}>
-                  {errors.devices?.[index]?.condition?.message}
-                </span>
-
               </div>
             </div>
           ))}
-          
         </footer>
         <div className={S.btn_submit}>
           <button
