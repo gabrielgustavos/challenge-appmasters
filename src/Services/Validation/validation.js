@@ -21,15 +21,6 @@ const requiredFields = yup.object({
     .required("Preencha o número de dispositivos")
     .typeError("Preencha o número de dispositivos")
     .min(1, "Preencha o número de dispositivos"),
-  devices: yup.array().of(
-    yup.object({
-      type: yup.string().required("Selecione um tipo de dispositivo"),
-      condition: yup
-        .string()
-        .required("Selecione a condição do dispositivo")
-        .nullable(),
-    })
-  ),
 });
 
 export default requiredFields;
