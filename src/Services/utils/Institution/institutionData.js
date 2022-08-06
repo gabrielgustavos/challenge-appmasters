@@ -5,10 +5,7 @@
     bairro: "Centro",
     about:
       "Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit",
-    site: "appmasters.io",
-    instagram: "appmasters.io",
-    whatsapp: "appmasters.io",
-    facebook: "appmasters.io",
+    url: "appmasters.io",
     },
   {
     nome: "Ajuda{Tech}",
@@ -16,10 +13,7 @@
     bairro: "Centro",
     about:
       "Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit",
-    site: "appmasters.io",
-    instagram: "appmasters.io",
-    whatsapp: "appmasters.io",
-    facebook: "appmasters.io",
+    url: "appmasters.io",
     },
   {
     nome: "Tecnologia para todos",
@@ -27,10 +21,7 @@
     bairro: "Centro",
     about:
       "Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit",
-    site: "appmasters.io",
-    instagram: "appmasters.io",
-    whatsapp: "appmasters.io",
-    facebook: "appmasters.io",
+    url: "appmasters.io",
     },
   {
     nome: "Solidariedade tecnólogica",
@@ -38,10 +29,7 @@
     bairro: "Centro",
     about:
       "Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit",
-    site: "appmasters.io",
-    instagram: "appmasters.io",
-    whatsapp: "appmasters.io",
-    facebook: "appmasters.io",
+    url: "appmasters.io",
     },
   {
     nome: "Programe o futuro",
@@ -49,10 +37,7 @@
     bairro: "Centro",
     about:
       "Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit Lorem ipsum,  adipisicing elit",
-    site: "appmasters.io",
-    instagram: "appmasters.io",
-    whatsapp: "appmasters.io",
-    facebook: "appmasters.io",
+    url: "appmasters.io",
     },
 ];
 

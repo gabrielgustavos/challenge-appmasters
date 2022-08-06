@@ -1,15 +1,22 @@
 import axios from "axios";
+
 import { useEffect, useState } from "react";
+
+/* Libs de validação e armazenamento de estados*/
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { BsFillPersonFill, BsMailbox } from "react-icons/bs";
 import { MdEmail, MdPhone } from "react-icons/md";
 
+/* Validação de campos e armazenamento de dados*/
+import requiredFields from "/src/Services/Validation/validation";
+import { types, conditions } from "../../Services/utils/Devices/DevicesData";
 import {
   normalizePhoneNumber,
   normalizeZipCode,
 } from "../../Services/Mask/mask";
-import requiredFields from "../../Services/Validation/validation";
+
 import api from "../../api/api";
 
 import S from "../../Assets/Styles/Form.module.css";
@@ -27,25 +34,26 @@ const UserForm = () => {
     resolver: yupResolver(requiredFields),
   });
 
+  /* Formatação dos campos de CEP e phone*/
   const phoneValue = watch("phone");
   const cepValue = watch("zip");
+
+  useEffect(() => {
+    setValue("phone", normalizePhoneNumber(phoneValue));
+  }, [phoneValue, setValue]);
+
+  useEffect(() => {
+    setValue("zip", normalizeZipCode(cepValue));
+  }, [cepValue, setValue]);
 
   const [dataCep, setDataCep] = useState();
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setValue("phone", normalizePhoneNumber(phoneValue));
-  }, [phoneValue]);
-
-  useEffect(() => {
-    setValue("zip", normalizeZipCode(cepValue));
-  }, [cepValue]);
-
   const onSubmit = (value) => {
-    console.log(value);
     if (value.email === "") {
       value.email = null;
     }
+
     api
       .post("/donation", value)
       .then((response) => {
@@ -53,50 +61,31 @@ const UserForm = () => {
       })
       .catch((error) => {
         alert(
-          "Ocorreu um erro ao enviar sua doação, tente novamente mais tarde."
+          `Faltam os seguintes campos:\n${error.response.data.requiredFields.join(
+            "\n"
+          )}`
         );
       });
+    reset();
   };
 
-  const checkCep = (e) => {
+  /* Busca de CEP e preenchimento automaticamento com setValue */
+  const checkCep = async (e) => {
     const cep = e.target.value.replace(/\D/g, "");
-    axios
-      .get(`https://viacep.com.br/ws/${cep}/json/`)
-      .then(({ data }) => {
-        setDataCep(data);
-        setLoading(true);
-        setValue("city", data.localidade);
-        setValue("neighborhood", data.bairro);
-        setValue("state", data.uf);
-        setValue("streetAddress", data.logradouro);
-        setFocus("number");
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
+    try {
+      setLoading(true);
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      setDataCep(response.data);
+      setValue("streetAddress", response.data.logradouro);
+      setValue("neighborhood", response.data.bairro);
+      setValue("city", response.data.localidade);
+      setValue("state", response.data.uf);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      alert("CEP inválido");
+    }
   };
-
-  const types = [
-    { deviceName: "Notebook", id: "notebook" },
-    { deviceName: "Desktop", id: "desktop" },
-    { deviceName: "Netbook", id: "netbook" },
-    { deviceName: "Monitor", id: "screen" },
-    { deviceName: "Impressora", id: "printer" },
-    { deviceName: "Scanner", id: "scanner" },
-  ];
-
-  const conditions = [
-    {
-      deviceName: "Tem todas as partes, liga e funciona normalmente",
-      id: "working",
-    },
-    { deviceName: "Tem todas as partes, mas não liga mais", id: "notWorking" },
-    {
-      deviceName: "Faltam peças, funciona só as vezes ou está quebrado",
-      id: "broken",
-    },
-  ];
 
   const [deviceCount, setDeviceCount] = useState("");
   const [deviceCondition, setDeviceCondition] = useState("");
@@ -159,10 +148,11 @@ const UserForm = () => {
           placeholder="Ex: 99999-999"
           type="text"
           {...register("zip")}
-          onChange={checkCep}
+          onBlur={checkCep}
         />
 
-        <span>{loading ? <span>Aguarde...</span> : ""}</span>
+        {loading ? <div className={S.loading}>Loading...</div> : ""}
+
         <span className={S.condition_message}>{errors.zip?.message}</span>
 
         <label>Logradouro *</label>
@@ -203,6 +193,7 @@ const UserForm = () => {
           {errors.deviceCount?.message}
         </span>
 
+        {/* Iteração de um array criado baseado em deviceCount */}
         <footer>
           {Array.from({ length: deviceCount }, (_, index) => (
             <div className={S.selection_wrapper} key={index}>
@@ -215,11 +206,12 @@ const UserForm = () => {
                 ))}
               </select>
               <label>Condição do equipamento</label>
+
               <br />
 
               <div {...register(`devices[${index}].condition`)}>
                 {conditions.map((condition) => (
-                  <div key={condition.id}>
+                  <div className={S.options_condition} key={condition.id}>
                     <input
                       key={condition.id}
                       type="radio"
@@ -230,12 +222,15 @@ const UserForm = () => {
                     <span>{condition.deviceName}</span>
                   </div>
                 ))}
+
                 <span className={S.condition_message}>
                   {errors.devices?.[index]?.condition?.message}
                 </span>
+
               </div>
             </div>
           ))}
+          
         </footer>
         <div className={S.btn_submit}>
           <button
@@ -244,9 +239,6 @@ const UserForm = () => {
             type="submit"
           >
             Confirmar
-          </button>
-          <button onClick={() => reset()} className={S.btn_clean}>
-            Limpar campos
           </button>
         </div>
       </form>

@@ -72,10 +72,15 @@
 .selection_wrapper > select > option {
   background-color: #383838;
   color: #FFFFFF;
+  margin: 50px;
 }
 
 .selection_wrapper > select:hover {
   cursor: pointer;
+}
+
+.options_condition {
+  padding: 10px 0;
 }
 
 .btn_submit {
@@ -138,6 +143,13 @@
 
   .selection_wrapper > select {
     font-size: 1.3rem;
+  }
+
+  .btn_submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .btn_submit > button {

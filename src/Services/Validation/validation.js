@@ -1,5 +1,7 @@
 import * as yup from "yup";
 
+/* Validação com YUP, somando com a validação do back-end*/
+
 const requiredFields = yup.object({
   name: yup.string().required("O nome é obrigatório"),
   email: yup.string().email("Digite um e-mail válido"),
@@ -18,7 +20,7 @@ const requiredFields = yup.object({
     .number()
     .required("Preencha o número de dispositivos")
     .typeError("Preencha o número de dispositivos")
-    .min(1, "O número deve ser maior que 0"),
+    .min(1, "Preencha o número de dispositivos"),
   devices: yup.array().of(
     yup.object({
       type: yup.string().required("Selecione um tipo de dispositivo"),
