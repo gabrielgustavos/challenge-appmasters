@@ -32,6 +32,7 @@
 
 <div align="center">
 
-<img src="https://prnt.sc/pYpkPcpqCulV"/>
-<img src="https://prnt.sc/4j1HYk8l9sJF"/>
+
+![download](https://user-images.githubusercontent.com/88562205/183305597-29b19b00-e170-4ea5-bebc-54c81261519f.png)
+![download](https://user-images.githubusercontent.com/88562205/183305601-914b46c9-d7c1-4fac-8deb-678617f4cb59.png)
 
