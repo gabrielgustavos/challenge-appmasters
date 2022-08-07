@@ -27,3 +27,11 @@
 ### Sobre as validações do projeto
 
 - O projeto possui duas camadas de validações no back-end e no front-end utilizando o Yup, evitando 100% envios sem os campos requisitados preenchidos
+
+### Imagens do projeto abaixo.
+
+<div align="center">
+
+<img src="https://prnt.sc/pYpkPcpqCulV"/>
+<img src="https://prnt.sc/4j1HYk8l9sJF"/>
+
