@@ -32,7 +32,10 @@
 
 <div align="center">
 
+![download](https://user-images.githubusercontent.com/88562205/183305755-642d8713-175a-492d-9235-606fc3c3e179.png)
 
-![download](https://user-images.githubusercontent.com/88562205/183305597-29b19b00-e170-4ea5-bebc-54c81261519f.png)
+![download](https://user-images.githubusercontent.com/88562205/183305759-bac80dd6-4e27-4557-ace2-449fc2055dbf.png)
+
+
 ![download](https://user-images.githubusercontent.com/88562205/183305601-914b46c9-d7c1-4fac-8deb-678617f4cb59.png)
 
